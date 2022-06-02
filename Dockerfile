@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update && \
-    apt-get install build-essentials git golang
+    apt-get install build-essential git golang
 
 ### Local user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
