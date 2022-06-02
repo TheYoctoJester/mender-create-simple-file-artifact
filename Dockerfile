@@ -15,6 +15,7 @@ RUN yes | unminimize \
     locales \
     sudo  \
     build-essential \
+    golang \
     && locale-gen en_US.UTF-8
 
 ENV LANG=en_US.UTF-8
