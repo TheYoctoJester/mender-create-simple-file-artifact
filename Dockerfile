@@ -16,6 +16,7 @@ RUN yes | unminimize \
     sudo  \
     build-essential \
     golang \
+    liblzma-dev \
     && locale-gen en_US.UTF-8
 
 ENV LANG=en_US.UTF-8
