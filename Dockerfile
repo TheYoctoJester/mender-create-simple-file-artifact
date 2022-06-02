@@ -8,6 +8,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN yes | unminimize \
     && install-packages \
+    ca-certificates \
 	git \
 	wget \
 	make \
