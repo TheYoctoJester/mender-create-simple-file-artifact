@@ -1,8 +1,22 @@
 # Container image that runs your code
 FROM ubuntu:latest
 
-RUN apt-get update && \
-    apt-get install build-essential git golang
+COPY install-packages /usr/bin
+
+### base ###
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN yes | unminimize \
+    && install-packages \
+	git \
+	wget \
+	make \
+    locales \
+    sudo  \
+    build-essential \
+    && locale-gen en_US.UTF-8
+
+ENV LANG=en_US.UTF-8
 
 ### Local user ###
 # '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
