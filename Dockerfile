@@ -1,5 +1,25 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM ubuntu:latest
+
+RUN apt-get update &&
+    apt-get install build-essentials git golang
+
+### Local user ###
+# '-l': see https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#user
+RUN useradd -l -u 1000 -G sudo -md /home/user -s /bin/bash -p user user \
+    # passwordless sudo for users in the 'sudo' group
+    && sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers
+ENV HOME=/home/user
+WORKDIR $HOME
+
+### Local user (2) ###
+USER user
+# use sudo so that user does not get sudo usage info on (the first) login
+RUN sudo echo "Running 'sudo' for user: success"
+
+RUN git clone https://github.com/mendersoftware/mender-artifact.git &&
+    cd mender-artifact &&
+    make
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
