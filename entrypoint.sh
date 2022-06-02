@@ -1,4 +1,4 @@
 #!/bin/sh -l
 
-cd …/mender-artifact
+cd ~/mender-artifact
 ./mender-artifact -h
