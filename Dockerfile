@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM ubuntu:latest
 
-RUN apt-get update &&
+RUN apt-get update && \
     apt-get install build-essentials git golang
 
 ### Local user ###
@@ -17,8 +17,8 @@ USER user
 # use sudo so that user does not get sudo usage info on (the first) login
 RUN sudo echo "Running 'sudo' for user: success"
 
-RUN git clone https://github.com/mendersoftware/mender-artifact.git &&
-    cd mender-artifact &&
+RUN git clone https://github.com/mendersoftware/mender-artifact.git && \
+    cd mender-artifact && \
     make
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
