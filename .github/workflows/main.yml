@@ -17,7 +17,16 @@ jobs:
           MENDER_SERVER_PASSWORD: ${{ secrets.MENDER_SERVER_PASSWORD }}
       - name: Create dummy payload
         id: payload
-        run: echo "dummy" > $RUNNER_WORKSPACE/payload && ls -alh $RUNNER_WORKSPACE && echo $RUNNER_WORKSPACE && env
+        run: |
+          echo "dummy" > $RUNNER_WORKSPACE/payload
+          ls -alh $RUNNER_WORKSPACE
+          echo $RUNNER_WORKSPACE
+          env
+      - name: Upload payload
+        uses: actions/upload-artifact@v2
+        with:
+          name: payload
+          path: $RUNNER_WORKSPACE/payload
       - name: Build and use mender-artifact container
         id: artifact
         uses: theyoctojester/mender-push-artifact@main
