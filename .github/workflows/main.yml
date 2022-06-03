@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Get authentication bearer
         id: auth
-        run: JWT=$(curl -s -X POST -u $MENDER_SERVER_USER:$MENDER_SERVER_PASSWORD $MENDER_SERVER_URI/api/management/v1/useradm/auth/login) echo $JWT
+        run: JWT=$(curl -s -X POST -u $MENDER_SERVER_USER:$MENDER_SERVER_PASSWORD $MENDER_SERVER_URI/api/management/v1/useradm/auth/login) echo $JWT && env
       - name: Create dummy payload
         id: payload
         run: echo "dummy" > $RUNNER_WORKSPACE/payload && ls -alh $RUNNER_WORKSPACE && echo $RUNNER_WORKSPACE
