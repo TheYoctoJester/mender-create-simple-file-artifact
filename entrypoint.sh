@@ -6,3 +6,4 @@ cd /home/user/mender-artifact
 ./mender-artifact -h
 ls -ahl ~
 ls -ahl $RUNNER_WORKSPACE
+tree /github
