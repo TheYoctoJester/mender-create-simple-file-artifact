@@ -5,6 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Build a Mender artifact
     steps:
+      - name: Get authentication bearer
+        id: auth
+        run: JWT=$(curl -s -X POST -u $MENDER_SERVER_USER:$MENDER_SERVER_PASSWORD $MENDER_SERVER_URI/api/management/v1/useradm/auth/login) echo $JWT
       - name: Create dummy payload
         id: payload
         run: echo "dummy" > $RUNNER_WORKSPACE/payload && ls -alh $RUNNER_WORKSPACE && echo $RUNNER_WORKSPACE
