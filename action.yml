@@ -1,16 +1,19 @@
 # action.yml
-name: 'Hello World'
+name: 'Create mender artifact'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  artifact_name:
+    description: 'resulting artifact name'
     required: true
-    default: 'World'
+  device_type:
+    description: 'compatible device type'
+    required: true
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  something:
+    description: 'I have no idea!'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.artifact_name }}
+    - ${{ inputs.device_type }}
