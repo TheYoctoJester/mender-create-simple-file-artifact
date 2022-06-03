@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Create dummy payload
         id: payload
-        run: echo "dummy" > $HOME/payload
+        run: echo "dummy" > $HOME/payload && ls -alh $HOME
       - name: Build and use mender-artifact container
         id: artifact
         uses: theyoctojester/mender-push-artifact@main
