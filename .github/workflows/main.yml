@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Get authentication bearer
         id: auth
-        run: JWT=$(curl -s -X POST -u $MENDER_SERVER_USER:$MENDER_SERVER_PASSWORD $MENDER_SERVER_URI/api/management/v1/useradm/auth/login) echo $JWT && env
+        run: export JWT=$(curl -s -X POST -u $MENDER_SERVER_USER:$MENDER_SERVER_PASSWORD $MENDER_SERVER_URI/api/management/v1/useradm/auth/login) && echo $JWT && env
         env:
           MENDER_SERVER_URI: ${{ secrets.MENDER_SERVER_URI }}
           MENDER_SERVER_USER: ${{ secrets.MENDER_SERVER_USER }}
