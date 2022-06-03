@@ -1,5 +1,5 @@
 #!/bin/sh -l
 
 echo "home in entrypoint.sh: $HOME"
-cd ~/mender-artifact
+cd /home/user/mender-artifact
 ./mender-artifact -h
