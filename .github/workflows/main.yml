@@ -18,15 +18,16 @@ jobs:
       - name: Create dummy payload
         id: payload
         run: |
-          echo "dummy" > $RUNNER_WORKSPACE/payload
-          ls -alh $RUNNER_WORKSPACE
-          echo $RUNNER_WORKSPACE
+          mkdir dist
+          echo "dummy" > dist/payload
+          pwd
+          tree .
           env
       - name: Upload payload
         uses: actions/upload-artifact@v2
         with:
           name: payload
-          path: $RUNNER_WORKSPACE/payload
+          path: dist/
       - name: Build and use mender-artifact container
         id: artifact
         uses: theyoctojester/mender-push-artifact@main
