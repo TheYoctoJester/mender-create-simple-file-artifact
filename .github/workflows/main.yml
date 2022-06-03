@@ -5,7 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Build a Mender artifact
     steps:
-      - name: Build
+      - name: Create dummy payload
+        id: payload
+        run: echo "dummy" > $HOME/payload
+      - name: Build and use mender-artifact container
         id: artifact
         uses: theyoctojester/mender-push-artifact@main
         with:
