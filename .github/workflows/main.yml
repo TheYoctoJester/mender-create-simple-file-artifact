@@ -18,8 +18,8 @@ jobs:
       - name: Create dummy payload
         id: payload
         run: |
-          mkdir dist
-          echo "dummy" > dist/payload
+          mkdir input
+          echo "dummy" > input/payload
           pwd
           tree .
           env
@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: payload
-          path: dist/
+          path: input/
       - name: Build and use mender-artifact container
         id: artifact
         uses: theyoctojester/mender-push-artifact@main
