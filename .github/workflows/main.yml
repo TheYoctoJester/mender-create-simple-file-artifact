@@ -23,5 +23,6 @@ jobs:
         id: artifact
         uses: theyoctojester/mender-push-artifact@main
         with:
-          artifact_name: gha_1
-          device_type: device_1
+          software_name: dummypayload
+          software_version: 1.23
+          device_type: dummydevice

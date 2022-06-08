@@ -1,9 +1,12 @@
 # action.yml
-name: 'Create mender artifact'
+name: 'Create and upload mender artifact'
 description: 'Greet someone and record the time'
 inputs:
-  artifact_name:
-    description: 'resulting artifact name'
+  software_name:
+    description: 'resulting software name'
+    required: true
+  software_version:
+    description: 'resulting software version'
     required: true
   device_type:
     description: 'compatible device type'
@@ -15,5 +18,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.artifact_name }}
+    - ${{ inputs.software_name }}
+    - ${{ inputs.software_version }}
     - ${{ inputs.device_type }}
