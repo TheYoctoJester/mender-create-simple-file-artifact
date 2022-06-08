@@ -27,5 +27,5 @@ curl -s -X POST https://hosted.mender.io/api/management/v1/deployments/artifacts
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
   -H "Authorization: Bearer $JWT" \
-  -F upload=@$GITHUB_WORKSPACE/output/simpledummy_1.0.mender
+  -F artifact=@$GITHUB_WORKSPACE/output/simpledummy_1.0.mender
 echo "... done"
