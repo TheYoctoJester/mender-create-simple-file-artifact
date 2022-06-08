@@ -3,6 +3,7 @@
 env
 
 cd /home/user/mender-artifact
+echo "creating the artifact..."
 ./mender-artifact write module-image \
   -T single-file \
   --device-type testdevice1 \
@@ -11,10 +12,11 @@ cd /home/user/mender-artifact
   --software-name simpledummy \
   --software-version 1.0 \
   -f $GITHUB_WORKSPACE/dist/payload
+echo "... done"
 
+echo "uploading the artifact..."
 curl -s -X POST https://hosted.mender.io/api/management/v1/deployments/artifacts \
   -H 'Content-Type: multipart/form-data' \
   -H 'Accept: application/json' \
   -H "Authorization: Bearer $JWT" $GITHUB_WORKSPACE/dist/payload
-
-tree $GITHUB_WORKSPACE
+echo "... done"
