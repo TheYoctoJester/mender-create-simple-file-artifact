@@ -25,9 +25,6 @@ jobs:
           env
       - name: Upload payload
         uses: actions/upload-artifact@v2
-        with:
-          name: payload
-          path: input/
       - name: Build and use mender-artifact container
         id: artifact
         uses: theyoctojester/mender-push-artifact@main

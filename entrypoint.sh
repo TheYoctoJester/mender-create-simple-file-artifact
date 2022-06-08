@@ -5,6 +5,7 @@ env
 cd /home/user/mender-artifact
 
 mkdir -p $GITHUB_WORKSPACE/output
+echo $?
 
 echo "creating the artifact..."
 ./mender-artifact write module-image \
@@ -18,7 +19,8 @@ echo "creating the artifact..."
 echo "... done"
 
 ls -alh $GITHUB_WORKSPACE
-ls -alh $GITHUB_WORKSPACE/dist
+ls -alh $GITHUB_WORKSPACE/input
+ls -alh $GITHUB_WORKSPACE/output
 
 echo "uploading the artifact..."
 curl -s -X POST https://hosted.mender.io/api/management/v1/deployments/artifacts \
