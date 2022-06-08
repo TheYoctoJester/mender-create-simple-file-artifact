@@ -23,8 +23,6 @@ jobs:
           pwd
           tree .
           env
-      - name: Upload payload
-        uses: actions/upload-artifact@v2
       - name: Build and use mender-artifact container
         id: artifact
         uses: theyoctojester/mender-push-artifact@main
