@@ -15,6 +15,7 @@ echo "creating the artifact..."
 echo "... done"
 
 ls -alh $GITHUB_WORKSPACE
+ls -alh $GITHUB_WORKSPACE/dist
 
 echo "uploading the artifact..."
 curl -s -X POST https://hosted.mender.io/api/management/v1/deployments/artifacts \
