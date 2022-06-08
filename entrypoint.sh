@@ -18,10 +18,6 @@ echo "creating the artifact..."
   -f $GITHUB_WORKSPACE/input/payload
 echo "... done"
 
-ls -alh $GITHUB_WORKSPACE
-ls -alh $GITHUB_WORKSPACE/input
-ls -alh $GITHUB_WORKSPACE/output
-
 echo "uploading the artifact..."
 curl -s -X POST https://hosted.mender.io/api/management/v1/deployments/artifacts \
   -H 'Content-Type: multipart/form-data' \

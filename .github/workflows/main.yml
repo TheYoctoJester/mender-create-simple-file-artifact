@@ -9,7 +9,6 @@ jobs:
         id: auth
         run: |
           export JWT=$(curl -s -X POST -u $MENDER_SERVER_USER:$MENDER_SERVER_PASSWORD $MENDER_SERVER_URI/api/management/v1/useradm/auth/login)
-          env
           echo "JWT=$JWT" >> $GITHUB_ENV
         env:
           MENDER_SERVER_URI: ${{ secrets.MENDER_SERVER_URI }}
@@ -20,15 +19,9 @@ jobs:
         run: |
           mkdir input
           echo "dummy" > input/payload
-          pwd
-          tree .
-          env
       - name: Build and use mender-artifact container
         id: artifact
         uses: theyoctojester/mender-push-artifact@main
         with:
           artifact_name: gha_1
           device_type: device_1
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
