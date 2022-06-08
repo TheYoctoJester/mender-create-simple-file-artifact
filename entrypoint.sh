@@ -4,8 +4,8 @@ env
 
 cd /home/user/mender-artifact
 
-mkdir -p $GITHUB_WORKSPACE/output
-echo $?
+sudo mkdir -p $GITHUB_WORKSPACE/output
+sudo chown $(whoami):$(whoami) $GITHUB_WORKSPACE/output
 
 echo "creating the artifact..."
 ./mender-artifact write module-image \
