@@ -2,4 +2,4 @@
 
 To start editing right away, open the repository on [Gitpod](https://gitpod.io):
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/TheYoctoJester/mender-push-create-simple-file-artifact)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/TheYoctoJester/mender-create-simple-file-artifact)
